@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "An interactive animated flower bouquet greeting card with blooming animations and romantic message.",
   "type": "module",
-  "main": "server.js",
   "scripts": {
     "dev": "node server.js",
     "start": "node server.js",

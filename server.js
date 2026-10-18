@@ -39,8 +39,11 @@ app.get('/flower', (_req, res) => {
   res.sendFile(path.join(__dirname, 'flower.html'));
 });
 
-// Fallback for any unknown route to index.html
-app.get('*', (_req, res) => {
+// Fallback only for non-file page navigation routes
+app.get('*', (req, res) => {
+  if (path.extname(req.path)) {
+    return res.status(404).send('File not found');
+  }
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
