@@ -10,7 +10,8 @@
   --dark-color: #000;
 }
 
-.title {
+.title,
+.flower-title {
   position: absolute;
   width: 100%;
   text-align: center;

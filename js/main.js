@@ -1,4 +1,6 @@
 function init() {
+  document.body.classList.remove("not-loaded");
+
   // Start romantic instrumental audio playback
   const bgAudio = document.getElementById('bg-audio');
   if (bgAudio) {
@@ -33,30 +35,29 @@ function init() {
     });
   }
 
-  const c = setTimeout(() => {
-    document.body.classList.remove("not-loaded");
-
+  // Animate the love message
+  setTimeout(() => {
     const titles = ('I LOVE U BUBU').split('');
     const titleElement = document.getElementById('title');
     if (!titleElement) return;
+    titleElement.innerHTML = '';
     let index = 0;
 
     function appendTitle() {
       if (index < titles.length) {
         titleElement.innerHTML += titles[index];
         index++;
-        setTimeout(appendTitle, 300);
+        setTimeout(appendTitle, 250);
       }
     }
 
     appendTitle();
-
-    clearTimeout(c);
-  }, 1000);
+  }, 800);
 }
 
-if (document.readyState === 'complete') {
-  init();
+// Run as soon as DOM is ready, don't block on heavy media download
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
 } else {
-  window.addEventListener('load', init);
+  init();
 }
