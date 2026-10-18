@@ -2,7 +2,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <link rel="shortcut icon" href="images/gift.png" type="image/x-icon">
   <link rel="stylesheet" href="css/index.css">
 
@@ -21,7 +21,7 @@
   <h1 class="title"></h1>
 
   <!-- Button -->
-  <div style="position: absolute; top: 60vh; width: 100%; display: flex; justify-content: center;">
+  <div class="btn-container">
     <a href="flower.html" class="btn">
       <svg height="24" width="24" fill="#FFFFFF" viewBox="0 0 24 24" data-name="Layer 1" id="Layer_1" class="sparkle">
         <path
@@ -32,6 +32,9 @@
       <span class="text">Open</span>
     </a>
   </div>
+
+  <!-- Hidden Audio Player -->
+  <audio id="bg-audio" src="audio/romantic.mp3" preload="auto" loop hidden style="display: none;"></audio>
 
   <script src="js/index.js"></script>
 </body>
