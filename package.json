@@ -1,0 +1,16 @@
+{
+  "name": "flowers-for-someone",
+  "version": "1.0.0",
+  "description": "An interactive animated flower bouquet greeting card with blooming animations and romantic message.",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "build": "echo 'Build complete'",
+    "lint": "node --check server.js js/index.js js/main.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

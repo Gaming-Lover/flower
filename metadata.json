@@ -1,0 +1,8 @@
+{
+  "name": "Flowers for Someone",
+  "description": "An interactive animated flower bouquet greeting card with blooming animations and romantic message.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
