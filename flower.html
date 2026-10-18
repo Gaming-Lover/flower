@@ -21,20 +21,38 @@
 
 .title,
 .flower-title {
-  position: absolute;
-  width: 100%;
-  text-align: center;
-  top: max(16px, env(safe-area-inset-top, 16px));
-  margin-top: 15px;
-  left: 0;
-  color: white;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: clamp(22px, 5.5vw, 65px);
-  padding: 0 max(16px, env(safe-area-inset-right, 16px)) 0 max(16px, env(safe-area-inset-left, 16px));
-  letter-spacing: clamp(1px, 0.4vw, 4px);
-  text-shadow: 0px 0px 20px white;
-  z-index: 100;
-  pointer-events: none;
+  position: absolute !important;
+  width: 100% !important;
+  text-align: center !important;
+  top: clamp(30px, 9vh, 85px) !important;
+  bottom: auto !important;
+  margin: 0 !important;
+  left: 0 !important;
+  color: white !important;
+  font-family: 'Courier New', Courier, monospace !important;
+  font-size: clamp(20px, 4.8vw, 52px) !important;
+  padding: 0 max(16px, env(safe-area-inset-right, 16px)) 0 max(16px, env(safe-area-inset-left, 16px)) !important;
+  letter-spacing: clamp(8px, 2vw, 20px) !important;
+  text-shadow: 0px 0px 20px white, 0px 0px 30px rgba(255, 105, 180, 0.7) !important;
+  z-index: 100 !important;
+  pointer-events: none !important;
+}
+
+.heart-glow {
+  color: #ff3366;
+  display: inline-block;
+  margin: 0 clamp(4px, 1vw, 10px);
+  animation: pulse-heart 1.4s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px #ff2255);
+}
+
+@keyframes pulse-heart {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.22);
+  }
 }
 
 body {
@@ -1581,7 +1599,7 @@ body {
   </div>
 
   <!-- Title -->
-  <h1 class="title"><span id="title"></span></h1>
+  <h1 class="title flower-title"><span id="title"></span></h1>
 
   <!-- Hidden Audio Player -->
   <audio id="bg-audio" preload="auto" loop hidden style="display: none;">

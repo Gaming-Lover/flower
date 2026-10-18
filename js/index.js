@@ -1,24 +1,36 @@
-// Animate Intro Title "I Have Something"
+// Animate Intro Title with "I Have" on line 1 and "Something" on line 2
 const title = document.querySelector('.landing-title');
-const text = `I Have Something`.split('');
 
 if (title) {
-  title.style.display = 'flex';
-  title.style.flexWrap = 'wrap';
-  title.style.justifyContent = 'center';
-  title.style.gap = '0.5rem';
+  title.innerHTML = `
+    <div class="line line--1"></div>
+    <div class="line line--2"></div>
+  `;
+  const line1 = title.querySelector('.line--1');
+  const line2 = title.querySelector('.line--2');
 
-  for (let index = 0; index < text.length; index++) {
-    if (text[index] !== ' ') {
-      title.innerHTML += `<span>${text[index]}</span>`;
+  const text1 = 'I HAVE'.split('');
+  const text2 = 'SOMETHING'.split('');
+
+  text1.forEach((char) => {
+    if (char !== ' ') {
+      line1.innerHTML += `<span>${char}</span>`;
     } else {
-      title.innerHTML += `<span style='width: 1rem'></span>`;
+      line1.innerHTML += `<span class="word-gap"></span>`;
     }
-  }
+  });
 
-  const textElements = document.querySelectorAll('.landing-title span');
+  text2.forEach((char) => {
+    if (char !== ' ') {
+      line2.innerHTML += `<span>${char}</span>`;
+    } else {
+      line2.innerHTML += `<span class="word-gap"></span>`;
+    }
+  });
+
+  const textElements = title.querySelectorAll('span:not(.word-gap)');
   textElements.forEach((element) => {
-    const randomDelay = Math.random() * 3;
+    const randomDelay = Math.random() * 2.5;
     element.style.animationDelay = `${randomDelay}s`;
   });
 }
@@ -63,16 +75,16 @@ function revealGarden() {
     flowerScreen.style.pointerEvents = 'auto';
   }
 
-  // Type out "I LOVE U BUBU"
+  // Type out "I LOVE U ❤️ BUBU" in the up box
   setTimeout(() => {
-    const titles = ('I LOVE U BUBU').split('');
+    const chars = ['I', ' ', 'L', 'O', 'V', 'E', ' ', 'U', ' ', '<span class="heart-glow">❤️</span>', ' ', 'B', 'U', 'B', 'U'];
     if (!flowerTitleText) return;
     flowerTitleText.innerHTML = '';
     let charIndex = 0;
 
     function typeChar() {
-      if (charIndex < titles.length) {
-        flowerTitleText.innerHTML += titles[charIndex];
+      if (charIndex < chars.length) {
+        flowerTitleText.innerHTML += chars[charIndex];
         charIndex++;
         setTimeout(typeChar, 250);
       }

@@ -37,15 +37,15 @@ function init() {
 
   // Animate the love message
   setTimeout(() => {
-    const titles = ('I LOVE U BUBU').split('');
+    const chars = ['I', ' ', 'L', 'O', 'V', 'E', ' ', 'U', ' ', '<span class="heart-glow">❤️</span>', ' ', 'B', 'U', 'B', 'U'];
     const titleElement = document.getElementById('title');
     if (!titleElement) return;
     titleElement.innerHTML = '';
     let index = 0;
 
     function appendTitle() {
-      if (index < titles.length) {
-        titleElement.innerHTML += titles[index];
+      if (index < chars.length) {
+        titleElement.innerHTML += chars[index];
         index++;
         setTimeout(appendTitle, 250);
       }
